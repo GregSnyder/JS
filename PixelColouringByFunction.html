@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="800" height="800" style="border:0px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var imgData = ctx.createImageData(800, 800);
+
+var x;
+var y;
+for (x = 0; x < 4*800; x += 1) {
+  for (y = 0;y < 800; y += 1){
+  imgData.data[x*800+y] = Math.sin(x/10*Math.sin(y))*Math.sin(y*x/100)*128+128;
+  }
+}
+ctx.putImageData(imgData, 10, 10);
+</script>
+
+</body>
+</html>
